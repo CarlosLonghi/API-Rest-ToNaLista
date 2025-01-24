@@ -11,14 +11,21 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
-    private Float quantity;
+
+    @Column(nullable = false)
+    private Double quantity;
+
+    @Column(nullable = false)
     private String unit;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ItemStatus status;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ItemPriority priority;
 
     public enum ItemStatus {
@@ -34,7 +41,7 @@ public class Item {
 
 
     /* CONSTRUCTOR */
-    public Item(Long id, String name, Float quantity, String unit, ItemStatus status, ItemPriority priority) {
+    public Item(Long id, String name, Double quantity, String unit, ItemStatus status, ItemPriority priority) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
@@ -60,11 +67,11 @@ public class Item {
         this.name = name;
     }
 
-    public Float getQuantity() {
+    public Double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Float quantity) {
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 
