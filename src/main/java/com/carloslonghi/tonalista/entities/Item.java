@@ -40,7 +40,10 @@ public class Item {
     }
 
 
-    /* CONSTRUCTOR */
+    /* NO ARGS CONSTRUCTOR */
+    public Item() {}
+
+    /* ARGS CONSTRUCTOR */
     public Item(Long id, String name, Double quantity, String unit, ItemStatus status, ItemPriority priority) {
         this.id = id;
         this.name = name;
