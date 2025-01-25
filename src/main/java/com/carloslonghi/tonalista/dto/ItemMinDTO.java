@@ -8,7 +8,6 @@ public class ItemMinDTO {
     private Double quantity;
     private String unit;
 
-
     /* NO ARGS CONSTRUCTOR */
     public ItemMinDTO() {}
 
