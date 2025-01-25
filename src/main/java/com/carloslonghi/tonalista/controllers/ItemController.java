@@ -18,7 +18,6 @@ public class ItemController {
 
     @GetMapping
     public List<ItemMinDTO> findAll() {
-        List<ItemMinDTO> result;
         return itemService.findAll();
     }
 }

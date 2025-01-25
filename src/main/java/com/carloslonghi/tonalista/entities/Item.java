@@ -39,7 +39,6 @@ public class Item {
         HIGH
     }
 
-
     /* NO ARGS CONSTRUCTOR */
     public Item() {}
 
