@@ -3,6 +3,7 @@ package com.carloslonghi.tonalista.services;
 import com.carloslonghi.tonalista.dto.ItemDTO;
 import com.carloslonghi.tonalista.dto.ItemMinDTO;
 import com.carloslonghi.tonalista.entities.Item;
+import com.carloslonghi.tonalista.projections.ItemMinProjection;
 import com.carloslonghi.tonalista.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,12 @@ public class ItemService {
     @Transactional(readOnly = true)
     public List<ItemMinDTO> findAll() {
         List<Item> result = itemRepository.findAll();
+        return result.stream().map(ItemMinDTO::new).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<ItemMinDTO> findByList(Long listId) {
+        List<ItemMinProjection> result = itemRepository.searchByList(listId);
         return result.stream().map(ItemMinDTO::new).toList();
     }
 }

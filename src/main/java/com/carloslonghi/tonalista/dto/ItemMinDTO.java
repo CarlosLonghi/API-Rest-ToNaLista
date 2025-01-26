@@ -1,6 +1,7 @@
 package com.carloslonghi.tonalista.dto;
 
 import com.carloslonghi.tonalista.entities.Item;
+import com.carloslonghi.tonalista.projections.ItemMinProjection;
 
 public class ItemMinDTO {
     private Long id;
@@ -17,6 +18,14 @@ public class ItemMinDTO {
         name = entity.getName();
         quantity = entity.getQuantity();
         unit = entity.getUnit();
+    }
+
+    /* PROJECTION ARGS CONSTRUCTOR */
+    public ItemMinDTO(ItemMinProjection projection) {
+        id = projection.getId();
+        name = projection.getName();
+        quantity = projection.getQuantity();
+        unit = projection.getUnit();
     }
 
     /* GETTERS */
