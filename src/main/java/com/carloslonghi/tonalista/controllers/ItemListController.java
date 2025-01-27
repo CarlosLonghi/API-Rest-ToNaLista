@@ -2,13 +2,11 @@ package com.carloslonghi.tonalista.controllers;
 
 import com.carloslonghi.tonalista.dto.ItemListDTO;
 import com.carloslonghi.tonalista.dto.ItemMinDTO;
+import com.carloslonghi.tonalista.dto.ReplacementDTO;
 import com.carloslonghi.tonalista.services.ItemListService;
 import com.carloslonghi.tonalista.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +28,10 @@ public class ItemListController {
     @GetMapping(value = "/{listId}/items")
     public List<ItemMinDTO> findByList(@PathVariable Long listId) {
         return itemService.findByList(listId);
+    }
+
+    @PostMapping(value = "/{listId}/replacement")
+    public void move(@PathVariable Long listId, @RequestBody ReplacementDTO body) {
+        itemListService.move(listId, body.getSourceIndex(), body.getDestinationIndex());
     }
 }
